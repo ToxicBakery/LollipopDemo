@@ -12,11 +12,7 @@ import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.GestureDetector;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.ViewGroup;
+import android.view.*;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -57,11 +53,14 @@ public class RecyclerViewActivity extends Activity implements View.OnClickListen
         buttonAddItem = (ImageButton) findViewById(R.id.activity_demo_recyclerview_imagebutton_add);
         recyclerView = (RecyclerView) findViewById(R.id.activity_demo_recyclerview_recyclerview);
 
-        int fabSize = getResources().getDimensionPixelSize(R.dimen.fab_size);
-        Outline outline = new Outline();
-        outline.setOval(0, 0, fabSize, fabSize);
         buttonAddItem.setOnClickListener(this);
-        buttonAddItem.setOutline(outline);
+        buttonAddItem.setOutlineProvider(new ViewOutlineProvider() {
+            @Override
+            public void getOutline(View view, Outline outline) {
+                int fabSize = getResources().getDimensionPixelSize(R.dimen.fab_size);
+                outline.setOval(0, 0, fabSize, fabSize);
+            }
+        });
 
         if (savedInstanceState == null) {
             dataElements = new ArrayList<>();
