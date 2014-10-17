@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    package="com.ToxicBakery.lollipop"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name="com.ToxicBakery.lollipop.MainActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".demo.CardViewActivity"
+            android:label="@string/demo_cardview"/>
+        <activity
+            android:name=".demo.RecyclerViewActivity"
+            android:label="@string/demo_recycler_view"/>
+        <activity
+            android:name=".demo.RealtimeShadowsActivity"
+            android:label="@string/demo_realtime_shadows"/>
+        <activity
+            android:name=".demo.RevealActivity"
+            android:label="@string/demo_reveal"/>
+        <activity
+            android:name=".demo.RippleActivity"
+            android:label="@string/demo_ripple"/>
+        <activity
+            android:name=".demo.SharedViewActivity"
+            android:label="@string/demo_shared_view"/>
+
+    </application>
+
+</manifest>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Colors taken from material palette -->
+    <!-- http://www.google.com/design/spec/style/color.html#color-ui-color-palette -->
+    <!-- 500 -->
+    <color name="primary">#259b24</color>
+    <!-- 700 -->
+    <color name="primary_dark">#0a7e07</color>
+    <!-- A700 -->
+    <color name="accent">#12c700</color>
+    <!-- Light Font color -->
+    <color name="text_primary">#D9FFFFFF</color>
+    <!-- Dark Font Color -->
+    <color name="text_secondary">#D9000000</color>
+</resources>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">LollipopDemo</string>
+    <string name="action_settings">Settings</string>
+    <!-- CardView -->
+    <string name="demo_cardview">CardView</string>
+    <string name="demo_cardview_description">Ollie: It gon rain.\nTom: Thanks Ollie.</string>
+    <!-- RealtimeShadow-->
+    <string name="demo_realtime_shadows">Realtime Shadows</string>
+    <string name="demo_realtime_shadow_button">Pump up the Shadow!</string>
+    <!-- RecyclerView -->
+    <string name="demo_recycler_view">RecyclerView</string>
+    <string name="demo_recycler_touch_to_remove">Touch to remove item:</string>
+    <!-- Reveal -->
+    <string name="demo_reveal">Reveal</string>
+    <!-- Ripple -->
+    <string name="demo_ripple">Ripple</string>
+    <string name="demo_ripple_button">Rip It!</string>
+    <!-- SharedView -->
+    <string name="demo_shared_view">Shared View</string>
+
+
+</resources>
