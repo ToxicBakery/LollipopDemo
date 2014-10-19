@@ -18,7 +18,8 @@
     <string name="demo_ripple">Ripple</string>
     <string name="demo_ripple_button">Rip It!</string>
     <!-- SharedView -->
-    <string name="demo_shared_view">Shared View</string>
+    <string name="demo_activity_transitions">New Activity Transitions</string>
+    <string name="space_picture_detail_text">This dramatic image offers a peek inside a cavern of roiling dust and gas where thousands of stars are forming. More than 3,000 stars of various sizes appear in this image of the Orion Nebula. Some of them have never been seen in visible light. Ultraviolet light unleashed by the four central stars is carving a cavity in the nebula and disrupting the growth of hundreds of smaller stars.</string>
 
 
 </resources>

@@ -34,8 +34,16 @@
             android:name=".demo.RippleActivity"
             android:label="@string/demo_ripple"/>
         <activity
-            android:name=".demo.SharedViewActivity"
-            android:label="@string/demo_shared_view"/>
+            android:name=".demo.NewActivityTransitionsActivity"
+            android:label="@string/demo_activity_transitions"/>
+
+        <activity android:name=".demo.NewActivityTransitionsActivity$TransitionActivity"/>
+
+        <activity android:name=".demo.NewActivityTransitionsActivity$SharedViewDetailActivity"/>
+
+
+
+
 
     </application>
 
