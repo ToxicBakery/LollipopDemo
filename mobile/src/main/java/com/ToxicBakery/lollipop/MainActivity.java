@@ -13,11 +13,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.ToxicBakery.lollipop.demo.CardViewActivity;
+import com.ToxicBakery.lollipop.demo.NewActivityTransitionsActivity;
 import com.ToxicBakery.lollipop.demo.RealtimeShadowsActivity;
 import com.ToxicBakery.lollipop.demo.RecyclerViewActivity;
 import com.ToxicBakery.lollipop.demo.RevealActivity;
 import com.ToxicBakery.lollipop.demo.RippleActivity;
-import com.ToxicBakery.lollipop.demo.SharedViewActivity;
 
 public class MainActivity extends Activity implements AdapterView.OnItemClickListener {
 
@@ -27,7 +27,7 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
             , new Demonstration(RecyclerViewActivity.class, R.string.demo_recycler_view)
             , new Demonstration(RevealActivity.class, R.string.demo_reveal)
             , new Demonstration(RippleActivity.class, R.string.demo_ripple)
-            , new Demonstration(SharedViewActivity.class, R.string.demo_shared_view)
+            , new Demonstration(NewActivityTransitionsActivity.class, R.string.demo_activity_transitions)
     };
 
     private ListView listViewDemos;
