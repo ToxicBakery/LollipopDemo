@@ -8,6 +8,7 @@
         <item name="android:textColor">@color/text_secondary</item>
         <item name="android:navigationBarColor">@color/primary_dark</item>
         <item name="android:textSize">@dimen/default_text_size</item>
+        <item name="android:editTextColor">@color/text_secondary</item>
     </style>
 
 </resources>

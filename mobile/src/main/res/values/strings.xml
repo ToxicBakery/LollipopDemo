@@ -19,6 +19,13 @@
     <string name="demo_ripple_button">Rip It!</string>
     <!-- SharedView -->
     <string name="demo_shared_view">Shared View</string>
+    <!-- Wearable Notifications -->
+    <string name="demo_wearable_notifications">Wearable Notifications</string>
+    <string name="demo_wearable_notifications_edittext_send_text">Text to send</string>
+    <string name="demo_wearable_notifications_button_send">Send Notification</string>
+    <string name="demo_wearable_notifications_button_clear">Clear Text</string>
+    <string name="demo_wearable_notifications_notification_title">Important Message</string>
+    <string name="demo_wearable_notifications_notification_talk_back">Talk Back</string>
 
 
 </resources>

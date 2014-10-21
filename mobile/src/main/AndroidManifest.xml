@@ -36,6 +36,10 @@
         <activity
             android:name=".demo.SharedViewActivity"
             android:label="@string/demo_shared_view"/>
+        <activity
+            android:name=".demo.WearableNotificationsActivity"
+            android:label="@string/demo_wearable_notifications"
+            android:launchMode="singleTask"/>
 
     </application>
 
