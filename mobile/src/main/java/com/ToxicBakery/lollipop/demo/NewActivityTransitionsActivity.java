@@ -80,6 +80,7 @@ public class NewActivityTransitionsActivity extends ListActivity implements Adap
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
 
+            //Note that this is called before setContentView()
             setupTransition();
 
             setContentView(R.layout.activity_demo_new_transitions);
@@ -91,7 +92,7 @@ public class NewActivityTransitionsActivity extends ListActivity implements Adap
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             Intent intent = new Intent(this, SharedViewDetailActivity.class);
-            Integer resId = (Integer) parent.getItemAtPosition(position);
+            int resId = (int) parent.getItemAtPosition(position);
             intent.putExtra(SharedViewDetailActivity.EXTRA_IMAGE_RES_ID, resId);
             Bundle options
                     = ActivityOptions.makeSceneTransitionAnimation(this, view, "sharedImage").toBundle();
@@ -99,11 +100,12 @@ public class NewActivityTransitionsActivity extends ListActivity implements Adap
         }
 
         private void setupTransition() {
+
+            int transitionType = getIntent().getIntExtra(EXTRA_TRANSITION_TYPE, -1);
+
             Window window = getWindow();
             window.requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
             window.setAllowEnterTransitionOverlap(true);
-
-            int transitionType = getIntent().getIntExtra(EXTRA_TRANSITION_TYPE, -1);
 
             switch (transitionType) {
                 case TRAN_TYPE_EXPLODE:
@@ -115,8 +117,8 @@ public class NewActivityTransitionsActivity extends ListActivity implements Adap
                     window.setExitTransition(new Slide(Gravity.RIGHT));
                     break;
                 case TRAN_TYPE_FADE:
-                    window.setEnterTransition(new Fade());
-                    window.setExitTransition(new Fade());
+                    window.setEnterTransition(new Fade(Fade.MODE_IN));
+                    window.setExitTransition(new Fade(Fade.MODE_OUT));
                     break;
                 case TRAN_TYPE_VIEW_SHARE:
                     window.requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS);
@@ -127,16 +129,6 @@ public class NewActivityTransitionsActivity extends ListActivity implements Adap
 
         }
     }
-
-
-
-
-
-
-
-
-
-
 
 
     private static class ImageViewAdapter extends BaseAdapter {
