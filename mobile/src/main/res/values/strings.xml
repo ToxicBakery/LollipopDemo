@@ -6,9 +6,6 @@
     <!-- CardView -->
     <string name="demo_cardview">CardView</string>
     <string name="demo_cardview_description">Ollie: It gon rain.\nTom: Thanks Ollie.</string>
-    <!-- RealtimeShadow-->
-    <string name="demo_realtime_shadows">Realtime Shadows</string>
-    <string name="demo_realtime_shadow_button">Pump up the Shadow!</string>
     <!-- RecyclerView -->
     <string name="demo_recycler_view">RecyclerView</string>
     <string name="demo_recycler_touch_to_remove">Touch to remove item:</string>

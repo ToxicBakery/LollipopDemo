@@ -14,7 +14,6 @@ import android.widget.TextView;
 
 import com.ToxicBakery.lollipop.demo.CardViewActivity;
 import com.ToxicBakery.lollipop.demo.NewActivityTransitionsActivity;
-import com.ToxicBakery.lollipop.demo.RealtimeShadowsActivity;
 import com.ToxicBakery.lollipop.demo.RecyclerViewActivity;
 import com.ToxicBakery.lollipop.demo.RevealActivity;
 import com.ToxicBakery.lollipop.demo.RippleActivity;
@@ -25,7 +24,6 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
 
     private static final Demonstration[] DEMOS = {
             new Demonstration(CardViewActivity.class, R.string.demo_cardview)
-            , new Demonstration(RealtimeShadowsActivity.class, R.string.demo_realtime_shadows)
             , new Demonstration(RecyclerViewActivity.class, R.string.demo_recycler_view)
             , new Demonstration(RevealActivity.class, R.string.demo_reveal)
             , new Demonstration(RippleActivity.class, R.string.demo_ripple)
