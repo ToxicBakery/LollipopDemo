@@ -3,11 +3,19 @@
     package="com.ToxicBakery.lollipop"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:theme="@style/AppTheme">
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version"/>
+
         <activity
             android:name="com.ToxicBakery.lollipop.MainActivity"
             android:label="@string/app_name">
@@ -39,6 +47,10 @@
         <activity
             android:name=".demo.WearableNotificationsActivity"
             android:label="@string/demo_wearable_notifications"
+            android:launchMode="singleTask"/>
+        <activity
+            android:name=".demo.WearableSyncActivity"
+            android:label="@string/demo_wearable_sync"
             android:launchMode="singleTask"/>
 
     </application>

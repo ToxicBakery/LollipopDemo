@@ -19,6 +19,7 @@ import com.ToxicBakery.lollipop.demo.RevealActivity;
 import com.ToxicBakery.lollipop.demo.RippleActivity;
 import com.ToxicBakery.lollipop.demo.SharedViewActivity;
 import com.ToxicBakery.lollipop.demo.WearableNotificationsActivity;
+import com.ToxicBakery.lollipop.demo.WearableSyncActivity;
 
 public class MainActivity extends Activity implements AdapterView.OnItemClickListener {
 
@@ -30,6 +31,7 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
             , new Demonstration(RippleActivity.class, R.string.demo_ripple)
             , new Demonstration(SharedViewActivity.class, R.string.demo_shared_view)
             , new Demonstration(WearableNotificationsActivity.class, R.string.demo_wearable_notifications)
+            , new Demonstration(WearableSyncActivity.class, R.string.demo_wearable_sync)
     };
 
     private ListView listViewDemos;

@@ -13,4 +13,5 @@
     <!-- Cards -->
     <dimen name="card_corner_radius">4dp</dimen>
     <dimen name="card_text_horizontal_margin">8dp</dimen>
+    <dimen name="small_padding">4dp</dimen>
 </resources>

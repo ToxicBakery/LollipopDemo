@@ -26,6 +26,8 @@
     <string name="demo_wearable_notifications_button_clear">Clear Text</string>
     <string name="demo_wearable_notifications_notification_title">Important Message</string>
     <string name="demo_wearable_notifications_notification_talk_back">Talk Back</string>
+    <!-- Wearable Sync -->
+    <string name="demo_wearable_sync">Wearable Sync</string>
 
 
 </resources>
