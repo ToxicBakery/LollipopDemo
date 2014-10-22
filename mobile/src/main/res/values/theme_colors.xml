@@ -8,6 +8,8 @@
     <color name="primary_dark">#0a7e07</color>
     <!-- A700 -->
     <color name="accent">#12c700</color>
+    <!-- A700 quart alpha -->
+    <color name="accentTint">#7f12c700</color>
     <!-- Light Font color -->
     <color name="text_primary">#D9FFFFFF</color>
     <!-- Dark Font Color -->

@@ -20,6 +20,16 @@
     <!-- SharedView -->
     <string name="demo_activity_transitions">New Activity Transitions</string>
     <string name="space_picture_detail_text">This dramatic image offers a peek inside a cavern of roiling dust and gas where thousands of stars are forming. More than 3,000 stars of various sizes appear in this image of the Orion Nebula. Some of them have never been seen in visible light. Ultraviolet light unleashed by the four central stars is carving a cavity in the nebula and disrupting the growth of hundreds of smaller stars.</string>
+    <string name="demo_shared_view">Shared View</string>
+    <!-- Wearable Notifications -->
+    <string name="demo_wearable_notifications">Wearable Notifications</string>
+    <string name="demo_wearable_notifications_edittext_send_text">Text to send</string>
+    <string name="demo_wearable_notifications_button_send">Send Notification</string>
+    <string name="demo_wearable_notifications_button_clear">Clear Text</string>
+    <string name="demo_wearable_notifications_notification_title">Important Message</string>
+    <string name="demo_wearable_notifications_notification_talk_back">Talk Back</string>
+    <!-- Wearable Sync -->
+    <string name="demo_wearable_sync">Wearable Sync</string>
 
 
 </resources>
