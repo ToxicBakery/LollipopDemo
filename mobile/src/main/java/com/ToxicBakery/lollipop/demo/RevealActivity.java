@@ -26,12 +26,25 @@ public class RevealActivity extends Activity {
         if (imageToReveal.getVisibility() == View.INVISIBLE) {
             playRevealAnimationForView(imageToReveal);
         } else {
-            playHideAnimatinoForView(imageToReveal);
+            playHideAnimationForView(imageToReveal);
         }
 
     }
 
-    private void playHideAnimatinoForView(final View viewToHide) {
+    private void playRevealAnimationForView(final View revealView) {
+        // get the center for the clipping circle
+        Animator anim = getRevealAnimation(revealView);
+        anim.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+                super.onAnimationStart(animation);
+                revealView.setVisibility(View.VISIBLE);
+            }
+        });
+        anim.start();
+    }
+
+    private void playHideAnimationForView(final View viewToHide) {
         Animator anim = getHideAnimation(viewToHide);
         anim.addListener(new AnimatorListenerAdapter() {
             @Override
@@ -56,13 +69,6 @@ public class RevealActivity extends Activity {
                                                         cy,
                                                         initialRadius,
                                                         finalRadius);
-    }
-
-    private void playRevealAnimationForView(View revealView) {
-        revealView.setVisibility(View.VISIBLE);
-        // get the center for the clipping circle
-        Animator anim = getRevealAnimation(revealView);
-        anim.start();
     }
 
     private Animator getRevealAnimation(View revealView) {
