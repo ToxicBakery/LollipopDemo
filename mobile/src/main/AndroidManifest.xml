@@ -33,9 +33,6 @@
             android:name=".demo.RecyclerViewActivity"
             android:label="@string/demo_recycler_view"/>
         <activity
-            android:name=".demo.RealtimeShadowsActivity"
-            android:label="@string/demo_realtime_shadows"/>
-        <activity
             android:name=".demo.RevealActivity"
             android:label="@string/demo_reveal"/>
         <activity
@@ -44,12 +41,8 @@
         <activity
             android:name=".demo.NewActivityTransitionsActivity"
             android:label="@string/demo_activity_transitions"/>
-
         <activity android:name=".demo.NewActivityTransitionsActivity$TransitionActivity"/>
-
         <activity android:name=".demo.NewActivityTransitionsActivity$SharedViewDetailActivity"/>
-            android:name=".demo.SharedViewActivity"
-            android:label="@string/demo_shared_view"/>
         <activity
             android:name=".demo.WearableNotificationsActivity"
             android:label="@string/demo_wearable_notifications"
