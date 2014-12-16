@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
     <Button
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:onClick="onRevealTapped"
-        android:layout_margin="@dimen/activity_vertical_margin"
-        android:padding="6dp"
-        android:textColor="@android:color/white"
-        android:background="@color/accent"
+        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tap to reveal"
-        android:id="@+id/button"
-        android:layout_gravity="center_horizontal" />
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/activity_vertical_margin"
+        android:background="@color/accent"
+        android:elevation="1dp"
+        android:onClick="onRevealTapped"
+        android:padding="6dp"
+        android:text="@string/demo_reveal"
+        android:textColor="@android:color/white"/>
 
     <ImageView
-        android:layout_centerInParent="true"
-        android:src="@drawable/butterfly"
-        android:visibility="invisible"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/imageView"
-        android:layout_gravity="center_horizontal" />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/demo_reveal"
+        android:scaleType="centerCrop"
+        android:src="@drawable/butterfly"
+        android:visibility="invisible"/>
 
 </RelativeLayout>

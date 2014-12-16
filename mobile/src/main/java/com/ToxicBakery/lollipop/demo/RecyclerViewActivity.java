@@ -8,11 +8,17 @@ import android.graphics.Outline;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.*;
+import android.view.GestureDetector;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewOutlineProvider;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -24,33 +30,43 @@ import java.util.List;
 /**
  * Sample implementation of a RecyclerView.
  * <p/>
- * The major difference between a ListView and a RecyclerView is that a ListView tightly binds data to a view while the
- * RecyclerView only cares about recycling the views.
+ * The major difference between a ListView and a RecyclerView is that a ListView tightly binds data
+ * to a view while the RecyclerView only cares about recycling the views.
  * <p/>
- * The key differences can be seen in the helper classes: LayoutManager, Adapter, ViewHolder, ItemDecoration,
- * ItemAnimator. <br /> In these class, RecyclerView can be manipulated on the fly to fill a screen in a variety of
- * ways.
+ * The key differences can be seen in the helper classes: LayoutManager, Adapter, ViewHolder,
+ * ItemDecoration, ItemAnimator. <br /> In these class, RecyclerView can be manipulated on the fly
+ * to fill a screen in a variety of ways.
  */
 public class RecyclerViewActivity extends Activity implements View.OnClickListener, RecyclerView.OnItemTouchListener {
 
     private static final String KEY_DATA_ELEMENTS = RecyclerViewActivity.class.getName() + ".KEY_DATA_ELEMENTS";
     private static final String KEY_COUNTER = RecyclerViewActivity.class.getName() + ".KEY_COUNTER";
 
-    private ImageButton buttonAddItem;
     private RecyclerView recyclerView;
     private GestureDetectorCompat gestureDetector;
-    private GestureDetector.SimpleOnGestureListener onGestureListener;
     private RecyclerViewAdapter recyclerViewAdapter;
 
+    private Handler handler;
     private ArrayList<String> dataElements;
     private int counter;
+
+    private Runnable autoAddItemsRunnable = new Runnable() {
+        @Override
+        public void run() {
+            if (recyclerViewAdapter.getItemCount() > 100)
+                return;
+
+            addItem();
+            handler.postDelayed(autoAddItemsRunnable, 500);
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_demo_recyclerview);
 
-        buttonAddItem = (ImageButton) findViewById(R.id.activity_demo_recyclerview_imagebutton_add);
+        ImageButton buttonAddItem = (ImageButton) findViewById(R.id.activity_demo_recyclerview_imagebutton_add);
         recyclerView = (RecyclerView) findViewById(R.id.activity_demo_recyclerview_recyclerview);
 
         buttonAddItem.setOnClickListener(this);
@@ -74,7 +90,7 @@ public class RecyclerViewActivity extends Activity implements View.OnClickListen
          */
 
         // Gesture detector to help listen for item selection
-        onGestureListener = new GestureDetector.SimpleOnGestureListener();
+        GestureDetector.SimpleOnGestureListener onGestureListener = new GestureDetector.SimpleOnGestureListener();
         gestureDetector = new GestureDetectorCompat(this, new RecyclerViewDemoOnGestureListener());
 
         // Use a layout manager to emulate a stacked representation of views in a horizontal or vertical orientation.
@@ -114,6 +130,21 @@ public class RecyclerViewActivity extends Activity implements View.OnClickListen
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+
+        handler = new Handler();
+        handler.postDelayed(autoAddItemsRunnable, 500);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        handler.removeCallbacks(autoAddItemsRunnable);
+    }
+
+    @Override
     public void onClick(View view) {
         if (view == null)
             return;
@@ -126,13 +157,17 @@ public class RecyclerViewActivity extends Activity implements View.OnClickListen
                 break;
             }
             case R.id.activity_demo_recyclerview_imagebutton_add: {
-                int size = dataElements.size();
-                int position = size / 2;
-                dataElements.add(position, getString(R.string.demo_recycler_touch_to_remove) + " " + ++counter);
-                recyclerViewAdapter.notifyItemInserted(position);
+                addItem();
                 break;
             }
         }
+    }
+
+    private void addItem() {
+        int size = dataElements.size();
+        int position = size / 2;
+        dataElements.add(position, getString(R.string.demo_recycler_touch_to_remove) + " " + ++counter);
+        recyclerViewAdapter.notifyItemInserted(position);
     }
 
     /**
@@ -223,7 +258,8 @@ public class RecyclerViewActivity extends Activity implements View.OnClickListen
     }
 
     /**
-     * Replication of OnItemClickListener using a gesture detector and the RecyclerView touch listener interface.
+     * Replication of OnItemClickListener using a gesture detector and the RecyclerView touch
+     * listener interface.
      */
     private class RecyclerViewDemoOnGestureListener extends GestureDetector.SimpleOnGestureListener {
 

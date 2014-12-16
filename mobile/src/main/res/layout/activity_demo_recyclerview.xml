@@ -8,18 +8,20 @@
         android:id="@+id/activity_demo_recyclerview_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"/>
+        android:orientation="vertical"
+        android:scrollbars="vertical"/>
 
     <ImageButton
         android:id="@+id/activity_demo_recyclerview_imagebutton_add"
         android:layout_width="@dimen/fab_size"
         android:layout_height="@dimen/fab_size"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_gravity="bottom|right"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="bottom|end"
         android:layout_marginBottom="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/ripple"
+        android:contentDescription="@string/demo_recycler_view"
         android:elevation="4dp"
         android:src="@drawable/ic_action_add"
         android:stateListAnimator="@anim/fab_anim"/>

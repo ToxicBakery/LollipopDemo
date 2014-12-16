@@ -5,7 +5,8 @@
     <string name="action_settings">Settings</string>
     <!-- CardView -->
     <string name="demo_cardview">CardView</string>
-    <string name="demo_cardview_description">Ollie: It gon rain.\nTom: Thanks Ollie.</string>
+    <string name="demo_cardview_title">Florida</string>
+    <string name="demo_cardview_message">Typical day in the Sunshine State.</string>
     <!-- RecyclerView -->
     <string name="demo_recycler_view">RecyclerView</string>
     <string name="demo_recycler_touch_to_remove">Touch to remove item:</string>
@@ -13,7 +14,7 @@
     <string name="demo_reveal">Reveal</string>
     <!-- Ripple -->
     <string name="demo_ripple">Ripple</string>
-    <string name="demo_ripple_button">Rip It!</string>
+    <string name="demo_ripple_button">Ripple!</string>
     <!-- SharedView -->
     <string name="demo_activity_transitions">New Activity Transitions</string>
     <string name="space_picture_detail_text">This dramatic image offers a peek inside a cavern of roiling dust and gas where thousands of stars are forming. More than 3,000 stars of various sizes appear in this image of the Orion Nebula. Some of them have never been seen in visible light. Ultraviolet light unleashed by the four central stars is carving a cavity in the nebula and disrupting the growth of hundreds of smaller stars.</string>

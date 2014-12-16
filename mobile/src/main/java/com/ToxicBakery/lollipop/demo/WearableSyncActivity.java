@@ -91,10 +91,10 @@ public class WearableSyncActivity extends Activity implements LoaderManager.Load
     private int pageSelected;
 
     /**
-     * Builds an {@link com.google.android.gms.wearable.Asset} from a bitmap. The image that we get back from the camera
-     * in "data" is a thumbnail size. Typically, your image should not exceed 320x320 and if you want to have zoom and
-     * parallax effect in your app, limit the size of your image to 640x400. Resize your image before transferring to
-     * your wearable device.
+     * Builds an {@link com.google.android.gms.wearable.Asset} from a bitmap. The image that we get
+     * back from the camera in "data" is a thumbnail size. Typically, your image should not exceed
+     * 320x320 and if you want to have zoom and parallax effect in your app, limit the size of your
+     * image to 640x400. Resize your image before transferring to your wearable device.
      */
     private static Asset toAsset(Bitmap bitmap) {
         ByteArrayOutputStream byteStream = null;
@@ -103,7 +103,7 @@ public class WearableSyncActivity extends Activity implements LoaderManager.Load
             bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteStream);
             return Asset.createFromBytes(byteStream.toByteArray());
         } finally {
-            if (null != byteStream) {
+            if (byteStream != null) {
                 try {
                     byteStream.close();
                 } catch (IOException e) {
@@ -210,23 +210,23 @@ public class WearableSyncActivity extends Activity implements LoaderManager.Load
 
     @Override
     public void onConnectionFailed(ConnectionResult connectionResult) {
-        if (isResolvingError) {
-            return;
-        } else if (connectionResult.hasResolution()) {
-            try {
-                isResolvingError = true;
-                connectionResult.startResolutionForResult(this, REQUEST_RESOLVE_ERROR);
-            } catch (IntentSender.SendIntentException e) {
-                googleApiClient.connect();
+        if (!isResolvingError) {
+            if (connectionResult.hasResolution()) {
+                try {
+                    isResolvingError = true;
+                    connectionResult.startResolutionForResult(this, REQUEST_RESOLVE_ERROR);
+                } catch (IntentSender.SendIntentException e) {
+                    googleApiClient.connect();
+                }
+            } else {
+                isResolvingError = false;
+                Wearable.DataApi.removeListener(googleApiClient, this);
             }
-        } else {
-            isResolvingError = false;
-            Wearable.DataApi.removeListener(googleApiClient, this);
         }
     }
 
     private Collection<String> getNodes() {
-        HashSet<String> results = new HashSet<String>();
+        Collection<String> results = new HashSet<String>();
         NodeApi.GetConnectedNodesResult nodes =
                 Wearable.NodeApi.getConnectedNodes(googleApiClient).await();
 
@@ -322,16 +322,13 @@ public class WearableSyncActivity extends Activity implements LoaderManager.Load
         }
 
         private void sendPhoto() {
-            System.out.println("1");
             WearableSyncActivity activity = (WearableSyncActivity) getActivity();
             if (activity != null && activity.galleryAdapter.instantiateItem(activity.viewPager,
                     activity.pageSelected) == this) {
-                System.out.println("2");
                 Bitmap bitmap = BITMAP_LRU_CACHE.get(ImageLoader.getWearImageCacheName(galleryImage));
                 if (bitmap != null) {
-                    System.out.println("3");
                     lastSent = activity.pageSelected;
-                    activity.sendPhoto(activity.toAsset(bitmap));
+                    activity.sendPhoto(toAsset(bitmap));
                 }
             }
         }
@@ -350,11 +347,11 @@ public class WearableSyncActivity extends Activity implements LoaderManager.Load
                 context = imageView.getContext().getApplicationContext();
             }
 
-            public static final String getWearImageCacheName(GalleryImage galleryImage) {
+            public static String getWearImageCacheName(GalleryImage galleryImage) {
                 return getImageUri(galleryImage).toString().replaceAll("[^a-zA-Z0-9.]", "") + "small";
             }
 
-            public static final Uri getImageUri(GalleryImage galleryImage) {
+            public static Uri getImageUri(GalleryImage galleryImage) {
                 return Uri.withAppendedPath(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
                         Integer.toString(galleryImage._id));
             }
